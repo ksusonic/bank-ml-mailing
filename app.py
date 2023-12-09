@@ -71,7 +71,6 @@ def render_page(scaler, background, age, heatmap, income, income_with_target):
         st.write('**Влияние дохода на клик по показу:**')
         st.image(income_with_target)
         st.write('У людей с более высоким доходом клики происходят чаще')
-        st.divider()
 
     with tab2:
         st.write('Введите данные клиента:')
@@ -79,18 +78,18 @@ def render_page(scaler, background, age, heatmap, income, income_with_target):
         col1, col2, col3 = st.columns(3)
         with col1:
             sex = st.selectbox('Пол', ['Женский', 'Мужской'])
-            age = st.slider('Возраст', min_value=0, max_value=100)
+            age = st.number_input('Возраст', min_value=0, max_value=100)
         with col2:
-            child = st.slider('Количество детей', min_value=0, max_value=100)
-            dependants = st.slider('Количество иждивенцев', min_value=0, max_value=100)
+            child = st.number_input('Количество детей', min_value=0, max_value=100)
+            dependants = st.number_input('Количество иждивенцев', min_value=0, max_value=100)
         with col3:
             work = st.selectbox('Статус работы', ['Трудоустроен', 'Безработный'])
             pens = st.selectbox('Пенсия', ['Нет', 'На пенсии'])
         col1, col2 = st.columns(2)
         with col1:
-            income = st.slider('Среднемесячный личный доход', min_value=0, max_value=1000000)
-            loans = st.slider('Взято кредитов:', min_value=0, max_value=10)
-            closed_loans = st.slider('Возвращено кредитов:', min_value=0, max_value=loans) if loans > 0 else 0
+            income = st.number_input('Среднемесячный личный доход', min_value=0, max_value=1000000)
+            loans = st.number_input('Взято кредитов:', min_value=0, max_value=10)
+            closed_loans = st.number_input('Возвращено кредитов:', min_value=0, max_value=loans) if loans > 0 else 0
         st.divider()
 
         col1, col2, col3 = st.columns(3)
